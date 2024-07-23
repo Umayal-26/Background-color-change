@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Example</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!--container-->
+    <div id="container">
+        <div id="colorText">Background Color: <span id="colorName">Red</span></div><br>
+        <!--Button-->
+        <button onclick="Background()">Click here to Change the Color</button>
+    </div>
+   <!--script starts-->
+    <script>
+        const colors = ['Red', 'Purple', 'Orange', 'Yellow', 'Pink', 'Plum','Green'];
+        let currentIndex = 0;
+
+        function Background() {
+            currentIndex = (currentIndex + 1) % colors.length;
+            const newColor = colors[currentIndex];
+            document.body.style.backgroundColor = newColor.toLowerCase();
+            document.getElementById('colorName').textContent = newColor;
+            document.getElementById('colorText').style.backgroundColor = newColor.toLowerCase();
+            document.getElementById('colorText').style.color = (newColor === 'Yellow' || newColor === 'White') ? 'black' : 'white';
+        }
+    </script>
+<!--script ends-->
+</body>
+</html>
